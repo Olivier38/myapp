@@ -1,0 +1,11 @@
+
+var cards = [{
+    "question" : "Quel âge avait Rimbo",
+    "answer" : "24 ans",
+    "hint" : "quand ?"
+},
+{
+    "question" : "Qu'avait de particulier le 5ème président des EU",
+    "answer" : "Bonne question",
+    "hint" : "pas de conseil"
+}];

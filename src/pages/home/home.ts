@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirstPage } from '../first/first';
+import { StoragePage } from '../storage/storage';
+
 
 @Component({
   selector: 'page-home',
@@ -14,5 +16,7 @@ export class HomePage {
   openFirstPage() {
   	this.navCtrl.push(FirstPage);
   }
-
-}
+  openStoragePage() {
+    this.navCtrl.push(StoragePage);
+  }
+} 
