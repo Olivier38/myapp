@@ -1,0 +1,65 @@
+
+<ion-header>
+
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <button ion-button block (click)="getRandom(); answerVisible = false; startText = 'Nouvelle carte';">
+            {{startText}}</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-slides *ngIf="randomCard" loop="true" pager (ionSlideDidChange)="getRandom()">
+    <ion-slide *ngIf="randomCard">
+    <ion-col class="answerbtn" *ngIf="randomCard">
+    <ion-card>
+      <ion-card-content>
+        <ion-row class="question">
+          {{randomCard.question}}
+        </ion-row>
+        <ion-col class="devider">
+        </ion-col>
+        <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
+          {{randomCard.answer}}
+        </ion-row>
+        <ion-row class="answerbtn">
+          <button bottom center ion-button full clear (click)="answerVisible = !answerVisible">
+            <span *ngIf="!answerVisible">Voir la réponse</span>
+            <span *ngIf="answerVisible">Masquer la réponse</span></button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-slide> 
+    <ion-slide *ngIf="randomCard">
+    <ion-col class="answerbtn" *ngIf="randomCard">
+    <ion-card>
+      <ion-card-content>
+        <ion-row class="question">
+          {{randomCard.question}}
+        </ion-row>
+        <ion-col class="devider">
+        </ion-col>
+        <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
+          {{randomCard.answer}}
+        </ion-row>
+        <ion-row class="answerbtn" *ngIf="randomCard">
+          <button (click)="answerVisible = !answerVisible" bottom center ion-button full clear>
+            <span *ngIf="!answerVisible">Voir la réponse</span>
+            <span *ngIf="answerVisible">Masquer la réponse</span></button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-slide
+>  
+  </ion-slides>
+
+</ion-content>
+
+
+<!-- Vérifier les fonction de presse
+SI ca marche vier le module long-press -->

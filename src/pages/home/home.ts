@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirstPage } from '../first/first';
-import { StoragePage } from '../storage/storage';
+import { Http, Headers } from '@angular/http';
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+
 
 
 @Component({
@@ -10,13 +13,12 @@ import { StoragePage } from '../storage/storage';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public http: Http) {
 
   }
+  
   openFirstPage() {
   	this.navCtrl.push(FirstPage);
   }
-  openStoragePage() {
-    this.navCtrl.push(StoragePage);
-  }
-} 
+
+}

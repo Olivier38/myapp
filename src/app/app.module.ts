@@ -10,7 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { FirstPage } from '../pages/first/first';
-import { StoragePage } from '../pages/storage/storage';
+import { RandomCardsPage } from '../pages/random-cards/random-cards';
+import { HttpModule } from '@angular/http';
+import { LongPressModule } from 'ionic-long-press';
 
 
 
@@ -19,26 +21,27 @@ import { StoragePage } from '../pages/storage/storage';
     MyApp,
     HomePage,
     FirstPage,
-    StoragePage,
+    RandomCardsPage,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     FormsModule,
     IonicModule.forRoot(MyApp),
+    LongPressModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     FirstPage,
-    StoragePage,
+    RandomCardsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NativeStorage
-
+    NativeStorage,
   ]
 })
 export class AppModule {}
