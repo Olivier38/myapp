@@ -1,14 +1,29 @@
 page-random-cards {
+
 	ion-content {
 		background: #f2f2f2 !important;
 	}
-	.card-content-md {
+	.card-content {
 		padding: 0 !important;
 		margin: 0 !important;
 	}
-	
+
+	.introContent {
+		font-size: 0.7em;
+		margin-top: 3vh;
+		margin-bottom: 10vh;
+		margin-left: 5vw;
+		margin-right: 5vw;
+	}
+	.skipBtn {
+		margin-top: 3vh;
+	}
+	.skipBtnTxt {
+		text-transform: lowercase;
+	}
+
 	.question {
-		background-color: grey;
+		background-color: #3190e1;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -32,6 +47,10 @@ page-random-cards {
 
 	.divider {
 		height: 3vh;
+	}
+	.card-md {
+		border-radius: 10px;
+		padding: 0 !important;
 	}
 
 	@keyframes fadeIn {

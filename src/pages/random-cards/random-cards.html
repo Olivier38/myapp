@@ -3,16 +3,26 @@
 
 </ion-header>
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-          <button ion-button block (click)="getRandom(); answerVisible = false; startText = 'Nouvelle carte';">
-            {{startText}}</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
-  <ion-slides *ngIf="randomCard" loop="true" pager (ionSlideDidChange)="getRandom()">
+<ion-slides pager="true" *ngIf="!introEnd">
+  <ion-slide>
+    <h2>Comment jouer ?</h2>
+    <p class="introContent">Lisez la question à haute voix sans lire la réponse. <br> Passez ensuite le jeu aux autres joueurs.</p>
+    <img src="../../assets/imgs/img-ionic-color.png" style="width: 200px" alt="">
+    <button class="skipBtn"(click)="introEnd = true; getRandom()" bottom center ion-button full clear>P<span class="skipBtnTxt">asser l'intro</span></button>
+  </ion-slide>
+  <ion-slide>
+    <p class="introContent">Tour à tour, les autres joueurs lisent la réponse et décident d'inventer une réponse ou d'en inventer une.</p>
+    <button class="skipBtn" (click)="introEnd = true; getRandom()" bottom center ion-button full clear>P<span class="skipBtnTxt">asser l'intro</span></button>
+  </ion-slide>
+  <ion-slide>
+    <p class="introContent">A vous de deviner qu'elle est la vraie réponse !</p>
+    <button class="skipBtn" (click)="introEnd = true; getRandom()" bottom center ion-button full clear>C<span class="skipBtnTxt">'est parti !</span></button>
+  </ion-slide>
+</ion-slides>
+
+
+ <ion-grid *ngIf="introEnd">
+  <ion-slides *ngIf="randomCard" loop="true" (ionSlideDidChange)="getRandom()">
     <ion-slide *ngIf="randomCard">
     <ion-col class="answerbtn" *ngIf="randomCard">
     <ion-card>
@@ -54,9 +64,18 @@
       </ion-card-content>
     </ion-card>
   </ion-col>
-</ion-slide
->  
+  </ion-slide>  
   </ion-slides>
+
+  <ion-fab bottom center>
+    <button ion-fab (click)="getRandom(); answerVisible = false; startText = 'Nouvelle carte';"><ion-icon name="add"></ion-icon>
+          </button>
+  </ion-fab>
+
+  </ion-grid>
+
+
+
 
 </ion-content>
 
