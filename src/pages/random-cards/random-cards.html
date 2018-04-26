@@ -7,64 +7,69 @@
   <ion-slide>
     <h2>Comment jouer ?</h2>
     <p class="introContent">Lisez la question à haute voix sans lire la réponse. <br> Passez ensuite le jeu aux autres joueurs.</p>
-    <img src="../../assets/imgs/img-ionic-color.png" style="width: 200px" alt="">
+    <img src="assets/imgs/tuto-1.png" style="width: 250px" alt="">
     <button class="skipBtn"(click)="introEnd = true; getRandom()" bottom center ion-button full clear>P<span class="skipBtnTxt">asser l'intro</span></button>
   </ion-slide>
   <ion-slide>
-    <p class="introContent">Tour à tour, les autres joueurs lisent la réponse et décident d'inventer une réponse ou d'en inventer une.</p>
+    <h2>Comment jouer ?</h2>
+    <p class="introContent">Tour à tour, les autres joueurs lisent la réponse. Ils peuvent décider de l'annoncer ou d'en inventer une fausse !</p> 
+    <img src="assets/imgs/tuto-2.png" style="width: 350px" alt="">
     <button class="skipBtn" (click)="introEnd = true; getRandom()" bottom center ion-button full clear>P<span class="skipBtnTxt">asser l'intro</span></button>
   </ion-slide>
   <ion-slide>
-    <p class="introContent">A vous de deviner qu'elle est la vraie réponse !</p>
+    <p class="introContent">&Agrave; vous de deviner qu'elle est la vraie réponse !</p>
+    <img src="assets/imgs/tuto-3.png" style="width: 250px" alt="">
     <button class="skipBtn" (click)="introEnd = true; getRandom()" bottom center ion-button full clear>C<span class="skipBtnTxt">'est parti !</span></button>
   </ion-slide>
 </ion-slides>
 
 
- <ion-grid *ngIf="introEnd">
-  <ion-slides *ngIf="randomCard" loop="true" (ionSlideDidChange)="getRandom()">
-    <ion-slide *ngIf="randomCard">
-    <ion-col class="answerbtn" *ngIf="randomCard">
-    <ion-card>
-      <ion-card-content>
-        <ion-row class="question">
-          {{randomCard.question}}
-        </ion-row>
-        <ion-col class="devider">
-        </ion-col>
-        <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
-          {{randomCard.answer}}
-        </ion-row>
-        <ion-row class="answerbtn">
-          <button bottom center ion-button full clear (click)="answerVisible = !answerVisible">
-            <span *ngIf="!answerVisible">Voir la réponse</span>
-            <span *ngIf="answerVisible">Masquer la réponse</span></button>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
-</ion-slide> 
-    <ion-slide *ngIf="randomCard">
-    <ion-col class="answerbtn" *ngIf="randomCard">
-    <ion-card>
-      <ion-card-content>
-        <ion-row class="question">
-          {{randomCard.question}}
-        </ion-row>
-        <ion-col class="devider">
-        </ion-col>
-        <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
-          {{randomCard.answer}}
-        </ion-row>
-        <ion-row class="answerbtn" *ngIf="randomCard">
-          <button (click)="answerVisible = !answerVisible" bottom center ion-button full clear>
-            <span *ngIf="!answerVisible">Voir la réponse</span>
-            <span *ngIf="answerVisible">Masquer la réponse</span></button>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
-  </ion-slide>  
+ <ion-grid *ngIf="introEnd; randomCard">
+  <ion-slides *ngIf="randomCard" loop="true" (ionSlideWillChange)="getRandom()">
+    <ion-slide>
+      <ion-col class="answerbtn" *ngIf="randomCard">
+        <ion-card>
+          <ion-card-content>
+            <ion-row class="question">
+              {{randomCard.question}}
+            </ion-row>
+            <ion-col class="devider">
+            </ion-col>
+            <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
+              {{randomCard.answer}}
+            </ion-row>
+            <ion-row class="answerbtn">
+              <button bottom center ion-button full clear (click)="answerVisible = !answerVisible">
+                <span *ngIf="!answerVisible">Voir la réponse</span>
+                <span *ngIf="answerVisible">Masquer la réponse</span>
+              </button>
+            </ion-row>
+          </ion-card-content>
+       </ion-card>
+      </ion-col>
+    </ion-slide> 
+    <ion-slide>
+      <ion-col class="answerbtn" *ngIf="randomCard">
+        <ion-card>
+          <ion-card-content>
+            <ion-row class="question">
+              {{randomCard.question}}
+            </ion-row>
+            <ion-col class="devider">
+            </ion-col>
+            <ion-row class="answer ; fadeIn" *ngIf="randomCard && answerVisible">
+              {{randomCard.answer}}
+            </ion-row>
+            <ion-row class="answerbtn" *ngIf="randomCard">
+              <button (click)="answerVisible = !answerVisible" bottom center ion-button full clear>
+                <span *ngIf="!answerVisible">Voir la réponse</span>
+                <span *ngIf="answerVisible">Masquer la réponse</span>
+              </button>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-slide>  
   </ion-slides>
 
   <ion-fab bottom center>
@@ -78,7 +83,3 @@
 
 
 </ion-content>
-
-
-<!-- Vérifier les fonction de presse
-SI ca marche vier le module long-press -->

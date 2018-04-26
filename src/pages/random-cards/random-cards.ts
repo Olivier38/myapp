@@ -31,15 +31,11 @@ export class RandomCardsPage implements OnInit {
     console.log(this.cards);
   }
 
-  start() {
-    this.startText = "Nouvelle carte";
-  }
-
   getRandom() {
-   if (this.availableCards.length === 1) {
+/*   if (this.availableCards.length === 1) {
       window.alert('Oops, that was our last Card !');
     }
-    else
+    else*/
     this.answerVisible = false;
     this.availableCards = this.cards.filter(card => !card.displayed);
     let rd = Math.floor(Math.random() * this.availableCards.length);
