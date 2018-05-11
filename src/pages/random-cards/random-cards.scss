@@ -43,13 +43,37 @@ page-random-cards {
 		align-items: center;
 		text-align: center;
 	}
+
+	.moreInfo {
+		font-size: 0.9em;
+		margin-top: 0.5vh;
+		color: #B2B2B2;
+		text-align: center;
+		opacity: 1;
+		animation-name: fadeInOpacity;
+		animation-iteration-count: 1;
+		animation-timing-function: ease-in;
+		animation-duration: 1s;
+	}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 	.answerbtn {
 		min-height: 10vh;
 		align-items: center;
 	}
 
 	.divider {
-		height: 3vh;
+		height: 2vh;
 	}
 	.card-md {
 		border-radius: 10px;
